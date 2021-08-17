@@ -1,7 +1,7 @@
  //<reference types="cypress" />
 
 
-describe('Check the "Register"functionality', () => {
+describe(' Register functionality', () => {
     beforeEach(() => {
   
       cy.visit('http://live.demoguru99.com')

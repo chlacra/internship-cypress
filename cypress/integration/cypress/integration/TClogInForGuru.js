@@ -1,6 +1,6 @@
 // <reference types="cypress" />
 
-describe('Check log in functionality', () => {
+describe(' Log in functionality', () => {
     beforeEach(() => {
   
       cy.visit('http://live.demoguru99.com')

@@ -78,7 +78,8 @@ describe('Check the "Register"functionality', () => {
         cy.get('#password').type('123456').should('have.value', '123456')
         cy.get('#confirmation').type('234533').should('have.value', '234533')
         cy.get('#advice-validate-cpassword-confirmation').should('have.text','Please make sure your passwords match.')
-        cy.get('.buttons-set > .button').click() 
+        
+        cy.get('.buttons-set > .button').click()
       }) 
 
 })

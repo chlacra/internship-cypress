@@ -24,6 +24,7 @@ describe('Check log in functionality', () => {
         cy.get('#email').type('jmarcov@amnesictampicobrush.oasdf').should('have.value', 'jmarcov@amnesictampicobrush.oasdf')
         cy.get('#pass').type('123456').should('have.value','123456')
         cy.get('#send2 > :nth-child(1) > span').click()
+        
         cy.get('body > div > div > div.main-container.col1-layout > div > div > div > ul > li > ul > li').should('have.text', 'Invalid login or password.')
      
 })

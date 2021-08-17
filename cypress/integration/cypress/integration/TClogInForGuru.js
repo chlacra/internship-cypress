@@ -10,7 +10,7 @@ describe('Check log in functionality', () => {
         cy.get('body div.header-language-background p')
         cy.get('.skip-account').click().scrollIntoView()
         cy.get('#header-account > .links > ul > .last > a').click()
-        cy.get('#email').type('ll6rcv@amnesictampicobrush33.org').should('have.value','ll6rcv@amnesictampicobrush33.org' )
+        cy.get('#email').type('ll6rccv@amnesictampicobrush33.org').should('have.value','ll6rccv@amnesictampicobrush33.org' )
         cy.get('#pass').type('123456').should('have.value','123456')
         cy.get('#send2 > :nth-child(1) > span').click()
         cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div > div.page-title > h1').should('have.text', 'My Dashboard')

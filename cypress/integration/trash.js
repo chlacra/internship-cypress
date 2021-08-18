@@ -41,13 +41,7 @@ CA SA EDITEZ CANTITATEA
     cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
     cy.get('body > div > div > div.main-container.col1-layout > div > div > div > ul > li > ul > li > span').should('have.text','LG LCD was added to your shopping cart.')
 
-    it.only( 'Check add items to cart functionality from ShoppingCart', () => {
-        cy.get('body div.header-language-background p')
-        cy.get('#search')
-            .click()
-            .type('Samsung {enter}')
-        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > ul > li > ul > li > span').should('have.text','Samsung LCD was added to your shopping cart.')
+   
        
 
 

@@ -1,29 +1,22 @@
 // <reference types="cypress" />
 
-describe(' Add an item to cart functionality', () => {
+describe(' Add an item to cart functionality for unregistred customers', () => {
     beforeEach(() => {
   
       cy.visit('http://live.demoguru99.com')
     })
- 
-    it( 'Check search functionality', () => {
-        cy.get('body div.header-language-background p')
-        cy.get('#search')
-            .click()
-            .type('Samsung {enter}')
-           // .type('Samsung')//
-       // cy.get('.input-box > .button').click()//
-      // cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title > h1').should('have.text', 'Search results for Samsung')//
-    })
 
-    it( 'Check add items to cart functionality from Category page', () => {
+
+    it.only( 'Check add items to cart functionality without searching the product from category page', () => {
         cy.get('body div.header-language-background p')
-        cy.get('#search')
+        cy.get('.nav-1 > .level0').click()
+        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul') 
+            .scrollIntoView() 
+        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span')
             .click()
-            .type('Samsung {enter}')
-        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > ul > li > ul > li > span').should('have.text','Samsung LCD was added to your shopping cart.')
-        cy.get('.page-title > .checkout-types > li > .button > :nth-child(1) > span').click()
+        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > ul > li > ul > li > span')
+            .should('have.text', 'Samsung Galaxy was added to your shopping cart.')
+            cy.get('.page-title > .checkout-types > li > .button > :nth-child(1) > span').click()
         cy.get('#opc-login > .step-title > h2').should('have.text','Checkout Method')
         cy.get('.col-1 > .form-list > :nth-child(1) > label').click()
         cy.get('#onepage-guest-register-button > :nth-child(1) > span').click()
@@ -39,7 +32,7 @@ describe(' Add an item to cart functionality', () => {
             .should('have.not.text')
         cy.get('#billing\\:email')
             .click()
-            .type('elena@yahoo.com')
+            .type('elena1234dgv@yasfafadf.org')
         cy.get('#billing\\:street1')
             .click()
             .type('Suceava, Universitatii nr 1')
@@ -76,16 +69,17 @@ describe(' Add an item to cart functionality', () => {
         cy.get('#payment-buttons-container > .button').click()
         cy.get('#opc-review > div.step-title > h2').should('have.text','Order Review')
         cy.get('#review-buttons-container > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div.page-title > h1')
-        .should('have.text','Your order has been received.')
+        cy.get('body > div > div > div.main-container.col1-layout > div > div > div.page-title > h1').should('have.text','Your order has been received.')
+       
+        
        
     })
-        
-    it( 'Check add items to cart functionality from Product page', () => {
+        it( 'Check add items to cart functionality without searching the product -from product page', () => {
             cy.get('body div.header-language-background p')
-            cy.get('#search')
-                .click()
-                .type('Samsung {enter}') 
+            cy.get('.nav-1 > .level0').click()
+            cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul') 
+            .scrollIntoView() 
+            cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','Mobile')
             cy.get('#product-collection-image-3').click()
             cy.get('.add-to-cart-buttons > .button > :nth-child(1) > span').click()
             cy.get('.page-title > .checkout-types > li > .button > :nth-child(1) > span').click()
@@ -144,11 +138,7 @@ describe(' Add an item to cart functionality', () => {
         cy.get('body > div > div > div.main-container.col1-layout > div > div > div.page-title > h1')
         .should('have.text','Your order has been received.')
     })
-
-   
-
-
-     it( 'Check the order status from Footer with Email Address', () => {
+    it( 'Check the order status from Footer with Email Address', () => {
         cy.get('body div.header-language-background p')
         cy.get(':nth-child(4) > ul > .last > a').click()
         cy.get('#oar_widget_orders_and_returns_form > div.fieldset > h2')
@@ -159,16 +149,14 @@ describe(' Add an item to cart functionality', () => {
         cy.get('#oar_billing_lastname')
             .click()
             .type('Loghin')
-        cy.get('#quick_search_type_id')
-            .select('Email Address')
+        cy.get('#quick_search_type_id').select('Email Address')
         cy.get('#oar_email')
             .click()
             .type('elena@yahoo.com')
         cy.get('.buttons-set > .button').click()
         cy.get('body > div > div > div.main-container.col1-layout > div > div.col-main > div.page-title.title-buttons > h1')
             .should('have.text','Order #100014691 - Pending')
-        
-     })
+    })
     it( 'Check the order status from Footer with ZIP Code', () => {
         cy.get('body div.header-language-background p')
         cy.get(':nth-child(4) > ul > .last > a')
@@ -189,17 +177,5 @@ describe(' Add an item to cart functionality', () => {
         cy.get('body > div > div > div.main-container.col1-layout > div > div.col-main > div.page-title.title-buttons > h1')
             .should('have.text','Order #100014691 - Pending')
     })
-
-    it.only( 'Check add items to cart functionality from ShoppingCart', () => {
-        cy.get('body div.header-language-background p')
-        cy.get('#search')
-            .click()
-            .type('Samsung {enter}')
-        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > ul > li > ul > li > span').should('have.text','Samsung LCD was added to your shopping cart.')
-        cy.get('.nav-1 > .level0').click()
-        cy.get('.header-minicart > .skip-link > .icon').click
-
-      })
-    })
-
+})
+    

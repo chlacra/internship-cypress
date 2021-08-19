@@ -43,7 +43,22 @@ CA SA EDITEZ CANTITATEA
 
    
        
-
+    cy.get('#header-cart > div.minicart-wrapper > div.minicart-actions > ul > li > a')
+    .should('have.text', 'Mobile')
 
         
     })
+
+     // it('register functionality', () => {
+      //  cy.get('body div.header-language-background p')
+       // cy.get('.skip-account').click().scrollIntoView()  
+       // cy.get(':nth-child(5) > a').click() 
+      //  cy.get('#firstname',{timeout:11000}).type('Elena','{ delay: 500 }').should('have.value', 'Elena')  
+      //  cy.get('#middlename',{timeout:11000}).type('E') 
+      //  cy.get('#lastname',{timeout:11000}).type('Loghin').should('have.value','Loghin')  
+     //   cy.get('#email_address',{timeout:11000}).type('Loelena@asdfg.org').should('have.value', 'Loelena@asdfg.org')   
+      //  cy.get('#password',{timeout:11000}).type('123456').should('have.value', '123456')
+      //  cy.get('#confirmation',{timeout:11000}).type('123456').should('have.value', '123456')
+       // cy.get('.buttons-set > .button').click() 
+      //  cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div > ul > li > ul > li > span').should('have.text', 'Thank you for registering with Main Website Store.')
+      //  cy.get('a > strong').click()//

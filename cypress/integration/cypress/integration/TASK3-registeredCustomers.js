@@ -1,6 +1,6 @@
 // <reference types="cypress" />
 
-describe('Updating account information', () => {
+describe('Registered customers functionalities', () => {
     beforeEach(() => {
   
       cy.visit('http://live.demoguru99.com')
@@ -31,16 +31,10 @@ describe('Updating account information', () => {
          //cy.get('.buttons-set > .button').click()
 
          //cy.get(':nth-child(3) > .col2-set > .col-1 > .box > .box-title > a').click() //* varianta pt apasat pe butonul EDIT
-    // })
+    //})
         cy.contains('Account').click()
         cy.get('#header-account > .links > ul > .last > a').click()
        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > h1').should('have.text','You are now logged out')
-    })
-})
-  describe('Wishlist', () => {
-    beforeEach(() => {
-  
-      cy.visit('http://live.demoguru99.com')
     })
     
       it('Verify if can add product to wish list', () => {
@@ -67,26 +61,21 @@ describe('Updating account information', () => {
         cy.get('.nav-2 > .level0').click()
         cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','TV')
         cy.get(':nth-child(1) > .product-info > .actions > .add-to-links > :nth-child(1) > .link-wishlist').click()
-        
-     // remove item from wish list
         cy.get('.skip-account').click()
         cy.get('#header-account > .links > ul > :nth-child(2) > a').click()
         cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div.my-wishlist > div > h1').should('have.text','My Wishlist')
-       cy.get( '#item_51779 > td.wishlist-cell5.customer-wishlist-item-remove.last > a').click
-       cy.contains('Account').click()
-        cy.get('#header-account > .links > ul > .last > a').click()
+        cy.get( '#item_51779 > td.wishlist-cell5.customer-wishlist-item-remove.last > a').click()
+        cy.get('#item_51780 > .wishlist-cell5 > .btn-remove').click()
+        cy.get('#item_51785 > .wishlist-cell5 > .btn-remove').click()
+        cy.get('#item_51791 > .wishlist-cell5 > .btn-remove').click()
+        cy.get('#item_51792 > .wishlist-cell5 > .btn-remove').click()
+
         cy.contains('Account').click()
-        cy.get('#header-account > .links > ul > .last > a').click()
-        cy.contains('Account').click()
-        cy.get('#header-account > .links > ul > .last > a').click()
-       cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div > h1').should('have.text','                Login or Create an Account            ')
+         cy.get('#header-account > .links > ul > .last > a').click()
+         cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div > h1').should('have.text','                Login or Create an Account            ')
           })
-        })
-    describe('ADD a new address', () => {
-          beforeEach(() => {
-        
-            cy.visit('http://live.demoguru99.com')
-          })
+          
+          
       it('Check  if adding a new address is possible', () => {
             
             cy.get('body div.header-language-background p')
@@ -112,43 +101,9 @@ describe('Updating account information', () => {
             cy.contains('The address has been saved.')
                 .should('have.text','The address has been saved.')
       })
-      })
-      describe('Purchasing items', () => {
-        beforeEach(() => {
-      
-          cy.visit('http://live.demoguru99.com')
-        })
-      it('Verify if can add product to cart,verify wishlist items', () => {
-        cy.get('body div.header-language-background p')
-        cy.get('.skip-account').click().scrollIntoView()
-        cy.get('#header-account > .links > ul > .last > a').click()
-        cy.get('#email').type('purielena@asdfg.org').should('have.value','purielena@asdfg.org' )
-        cy.get('#pass').type('123456').should('have.value','123456')
-        cy.get('#send2 > :nth-child(1) > span')
-            .click()
-        cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div > div.page-title > h1')
-            .should('have.text', 'My Dashboard')
-        cy.get('#search')
-            .click()
-            .type('Samsung {enter}')
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title > h1').should('have.text','Search results for \'Samsung\'')
-        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
-        cy.get('.nav-1 > .level0').click()
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','Mobile')
-        cy.get(':nth-child(2) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
-        cy.get('.nav-2 > .level0').click()
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','TV')
-        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
-        cy.get('.nav-1 > .level0').click()
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','Mobile')
-        cy.get(':nth-child(3) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
+    
      
-      })
-      it('Check if can remove item from cart', () => {
+      it('Verify add to cart', () => {
         cy.get('body div.header-language-background p')
         cy.get('.skip-account').click().scrollIntoView()
         cy.get('#header-account > .links > ul > .last > a').click()
@@ -177,47 +132,14 @@ describe('Updating account information', () => {
         cy.get(':nth-child(3) > .product-info > .actions > .button > :nth-child(1) > span').click()
         cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
         cy.get('.first > .a-center > .btn-remove').click()
-
-
-
-      })
-
-      it('Check if can update quantity', () => {
-        cy.get('body div.header-language-background p')
-        cy.get('.skip-account').click().scrollIntoView()
-        cy.get('#header-account > .links > ul > .last > a').click()
-        cy.get('#email').type('purielena@asdfg.org').should('have.value','purielena@asdfg.org' )
-        cy.get('#pass').type('123456').should('have.value','123456')
-        cy.get('#send2 > :nth-child(1) > span')
-            .click()
-        cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div > div.page-title > h1')
-            .should('have.text', 'My Dashboard')
-        cy.get('#search')
-            .click()
-            .type('Samsung {enter}')
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title > h1').should('have.text','Search results for \'Samsung\'')
-        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
-        cy.get('.nav-1 > .level0').click()
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','Mobile')
-        cy.get(':nth-child(2) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
-        cy.get('.nav-2 > .level0').click()
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','TV')
-        cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
-        cy.get('.nav-1 > .level0').click()
-        cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title.category-title > h1').should('have.text','Mobile')
-        cy.get(':nth-child(3) > .product-info > .actions > .button > :nth-child(1) > span').click()
-        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
         cy.get('.first > .product-cart-actions > .input-text')
           .click()
           .clear()
           .type('5')
         cy.get('.first > .product-cart-actions > .button > :nth-child(1) > span').click()
         cy.get('body > div > div > div.main-container.col1-layout > div > div > div > div.page-title.title-buttons > h1').should('have.text','Shopping Cart')
-
-
+        cy.get('#empty_cart_button > :nth-child(1) > span').click()
+       cy.get('body > div > div > div.main-container.col1-layout > div > div > div.page-title > h1').should('have.text','Shopping Cart is Empty')
 
       })
       
@@ -267,7 +189,7 @@ describe('Updating account information', () => {
       })
 
       
-      it('verify the order status', () => {
+      it.only('verify the order status', () => {
       
 
         cy.get('body div.header-language-background p')
@@ -329,7 +251,7 @@ describe('Updating account information', () => {
         cy.get('#header-account > .links > ul > .first > a').click()
         cy.get('.block-content > ul > :nth-child(4) > a').click()
         cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div.page-title > h1').should('have.text','My Orders')
-        
+ 
     
       })
 

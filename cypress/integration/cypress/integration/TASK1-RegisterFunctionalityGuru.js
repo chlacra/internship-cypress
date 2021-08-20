@@ -13,7 +13,7 @@ describe(' Register functionality', () => {
         cy.get('#firstname',{timeout:11000}).type('Elena','{ delay: 500 }').should('have.value', 'Elena')  
         cy.get('#middlename',{timeout:11000}).type('E') 
         cy.get('#lastname',{timeout:11000}).type('Loghin').should('have.value','Loghin')  
-        cy.get('#email_address',{timeout:11000}).type('lorpcv@amnesictampicobrush33.org').should('have.value', 'lorcpv@amnesictampicobrush33.org')   
+        cy.get('#email_address',{timeout:11000}).type('ananasverde1@taiat.org').should('have.value', 'ananasverde1@taiat.org')   
         cy.get('#password',{timeout:11000}).type('123456').should('have.value', '123456')
         cy.get('#confirmation',{timeout:11000}).type('123456').should('have.value', '123456')
         cy.get('.buttons-set > .button').click() 
@@ -27,7 +27,7 @@ describe(' Register functionality', () => {
         cy.get('#firstname').type('Elena','{ delay: 500 }').should('have.value', 'Elena')
         cy.get('#middlename').should('have.not.value')
         cy.get('#lastname').type('Loghin').should('have.value','Loghin')
-        cy.get('#email_address').type('llommrcov@amnesictampicobru3shp.org').should('have.value', 'llommrcov@amnesictampicobru3shp.org')
+        cy.get('#email_address').type('marverde@taiat.org').should('have.value', 'marverde@taiat.org')
         cy.get('#password').type('123456').should('have.value', '123456')
         cy.get('#confirmation').type('123456').should('have.value', '123456')
         cy.get('.buttons-set > .button').click() 
@@ -74,12 +74,12 @@ describe(' Register functionality', () => {
         cy.get('#firstname').type('Elena','{ delay: 500 }').should('have.value', 'Elena')
         cy.get('#middlename').type('E')
         cy.get('#lastname').type('Loghin').should('have.value','Loghin')
-        cy.get('#email_address').type('jomarcov@amnesicta3mpicobrushp.org').should('have.value', 'jomarcov@amnesicta3mpicobrushp.org')
+        cy.get('#email_address').type('bananaverde@taiat.org').should('have.value', 'bananaverde@taiat.org')
         cy.get('#password').type('123456').should('have.value', '123456')
         cy.get('#confirmation').type('234533').should('have.value', '234533')
+        cy.get('.buttons-set > .button > :nth-child(1) > span').click()
         cy.get('#advice-validate-cpassword-confirmation').should('have.text','Please make sure your passwords match.')
-        
-        cy.get('.buttons-set > .button').click()
+       
       }) 
 
 })

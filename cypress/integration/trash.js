@@ -62,3 +62,20 @@ CA SA EDITEZ CANTITATEA
        // cy.get('.buttons-set > .button').click() 
       //  cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div > ul > li > ul > li > span').should('have.text', 'Thank you for registering with Main Website Store.')
       //  cy.get('a > strong').click()//
+
+ALTE TESTE
+
+      // describe('ShoppingCart functionality', () => {
+
+    //beforeEach(() => {
+  
+        //cy.visit('http://automationpractice.com/index.php')
+     /// })
+      //it.only(' Add to cart from product page unregistred user', () => {
+       //cy.get('#search_query_top').click().type('dress{enter}')
+      // cy.get('#center_column > h1').should('have.text', ' Search           ')
+       
+
+
+      //})
+    //})

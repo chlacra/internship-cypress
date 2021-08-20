@@ -79,3 +79,15 @@ ALTE TESTE
 
       //})
     //})
+
+
+
+API 
+//describe(' API cypress test suite', () => {
+  //  it('should return book by ID ', () => {
+        //cy.request({
+        // method: 'GET',
+          //  url: 'https://restful-booker.herokuapp.com/booking/:id'})
+  //  })
+
+//})

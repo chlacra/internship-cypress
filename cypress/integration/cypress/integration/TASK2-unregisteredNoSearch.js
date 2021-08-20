@@ -7,7 +7,7 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
     })
 
 
-    it.only( 'Check add items to cart functionality without searching the product from category page', () => {
+    it( 'Check add items to cart functionality without searching the product from category page', () => {
         cy.get('body div.header-language-background p')
         cy.get('.nav-1 > .level0').click()
         cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul') 

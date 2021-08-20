@@ -7,7 +7,7 @@ describe('ShoppingCart functionality', () => {
         cy.visit('https://petstore.octoperf.com/actions/Catalog.action')
       })
     
-    it.only(' Add to cart  registred user', () => {
+    it(' Add to cart  registred user', () => {
     cy.get('#MenuContent > a:nth-child(3)').click().should('have.attr', 'href')
     cy.get('#Catalog > form > p:nth-child(1)').should('have.text','Please enter your username and password.')
     cy.get('input[name=username]').click().clear().type('ADA')

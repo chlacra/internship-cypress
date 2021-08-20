@@ -58,7 +58,7 @@ describe(' Log in functionality', () => {
         cy.get('#advice-required-entry-pass').should('have.text','This is a required field.')
       
 })
-it.only('Check response password field empty', () => {
+it('Check response password field empty', () => {
     cy.get('body div.header-language-background p')
     cy.get('.skip-account').click().scrollIntoView()
     cy.get('#header-account > .links > ul > .last > a').click()

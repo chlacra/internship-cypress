@@ -1,5 +1,5 @@
 // <reference types="cypress" />
-
+const orderNumberMock = 100014838;
 describe('Registered customers functionalities', () => {
     beforeEach(() => {
   
@@ -17,7 +17,7 @@ describe('Registered customers functionalities', () => {
          cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div > div.page-title > h1').should('have.text', 'My Dashboard')
     
         
-         cy.get('.block-content > ul > :nth-child(2)').click() //* varianta pentru apasat pe ACCOUNT INFORMATION
+         cy.get('.block-content > ul > :nth-child(2)').click() 
          cy.get('#firstname').clear().type('Mimi')
          cy.get('#middlename').clear().type('Mi')
          cy.get('.name-lastname > .input-box').clear().type('Ionescu')
@@ -27,9 +27,6 @@ describe('Registered customers functionalities', () => {
          cy.get('#password').type('214365')
          cy.get('#confirmation').type('214365')
          cy.get('.buttons-set > .button').click()
-
-         //cy.get(':nth-child(3) > .col2-set > .col-1 > .box > .box-title > a').click() //* varianta pt apasat pe butonul EDIT
-    
         cy.contains('Account').click()
         cy.get('#header-account > .links > ul > .last > a').click()
        cy.get('body > div > div > div.main-container.col1-layout > div > div > div > h1').should('have.text','You are now logged out')
@@ -184,7 +181,7 @@ describe('Registered customers functionalities', () => {
       })
       
      
-      it('verify the order status', () => {
+      it.only('verify the order status', () => {
       
 
         cy.get('body div.header-language-background p')
@@ -200,7 +197,9 @@ describe('Registered customers functionalities', () => {
         cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div.page-title > h1').should('have.text','My Orders')
         cy.get('[href="http://live.demoguru99.com/index.php/sales/order/view/order_id/14911/"]').click()
         cy.get('#order-info-tabs > li').should('have.text','Order Information')
+        cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div.page-title.title-buttons > h1').should('have.text',`Order #${orderNumberMock} - Pending`)
         cy.get('#order-item-row-17007 > td:nth-child(4) > span > strong').should('have.text','5')
+        console.log(cy.get('body > div > div > div.main-container.col2-left-layout > div > div.col-main > div > div.page-title.title-buttons > h1'))
     
       })
 

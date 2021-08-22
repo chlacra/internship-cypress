@@ -91,3 +91,26 @@ API
   //  })
 
 //})
+cy.log(JSON.stringify(
+                    
+  {
+      "200": 1,
+      "sold": 7,
+      " not available": 1,
+      "teststa5": 634,
+      "string": 63,
+      "{{status}}": 6,
+      "pending": 3,
+      "available": 264,
+      "ok": 5,
+      "OK": 1,
+      "free": 1,
+      "peric": 1
+    }))
+  })
+})
+
+})
+
+
+

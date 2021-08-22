@@ -1,15 +1,12 @@
 describe('API request', () => {
-        it('check if returns a map of status codes to quantities', () => {
+        it('GET- a map of status codes to quantities', () => {
             cy.request({
                 method: 'GET',
                 url: 'https://petstore.swagger.io/v2/store/inventory'
             })
             .should((response) => {
                 expect(response.status).to.eq(200)
-                //expect(response.body.quantidade).to.eq(12)
-               // expect(response.body.produtos[0]).to.have.all.keys(
-                    //"200", "sold", "not available", "string", "{{status}}","pending", "available","ok","OK", "free","peric"
-                  //)
+                
                 cy.log(JSON.stringify(
                     
                     {
@@ -29,20 +26,114 @@ describe('API request', () => {
                     })
         })
                   
-        })
+        
             
-
-
-/*describe('Products api', () => {
-    context('GET /produtos', () => {
-        it('should return a list with all products', () => {
+        it('GET- pets by status ', () => {
             cy.request({
                 method: 'GET',
-                url: 'https://serverest.dev/produtos'
+                url: 'https://petstore.swagger.io/v2/pet/findByStatus?status=sold'
             })
-                .should((response) => {
-                    cy.log(JSON.stringify(response.body))
-                });
-        });
-    });
-});*/
+            .should((response) => {
+                expect(response.status).to.eq(200)
+
+            })
+        })
+    
+        it('POST- new pet to list', () => {
+         
+            cy.request('POST', 'https://petstore.swagger.io/v2/user/createWithList',[ {
+                "id": 0,
+                "username": "string",
+                "firstName": "string",
+                "lastName": "string",
+                "email": "string",
+                "password": "string",
+                "phone": "string",
+                "userStatus": 0
+              }]).then(
+                (response) => {
+                    expect(response.status).to.eq(200)
+                })
+            
+            })
+
+    it('POST -a new pet to the store', () => {
+         
+                cy.request('POST', 'https://petstore.swagger.io/v2/pet', {
+                
+                    "id": 0,
+                    "category": {
+                      "id": 0,
+                      "name": "string"
+                    },
+                    "name": "doggie",
+                    "photoUrls": [
+                      "string"
+                    ],
+                    "tags": [
+                      {
+                        "id": 0,
+                        "name": "string"
+                      }
+                    ],
+                    "status": "available"
+                })
+                  .then(
+                    (response) => {
+                        expect(response.status).to.eq(200)
+                    })
+        
+            })
+ it('PUT-update an existing pet', () => {
+         
+                cy.request('PUT', 'https://petstore.swagger.io/v2/pet', 
+                {
+                    "id": 9223372000666026000,
+                    "category": {
+                      "id": 0,
+                      "name": "string"
+                    },
+                    "name": "doggie",
+                    "photoUrls": [
+                      "string"
+                    ],
+                    "tags": [
+                      {
+                        "id": 0,
+                        "name": "string"
+                      }
+                    ],
+                    "status": "available"
+                  })
+                  .then(
+                    (response) => {
+                        expect(response.status).to.eq(200)
+                    })
+                })
+            
+it('PUT- update an user', () => {
+         
+                        cy.request('PUT', 'https://petstore.swagger.io/v2/user/Andrei',
+                        {
+                            "id": 0,
+                            "username": "string",
+                            "firstName": "string",
+                            "lastName": "string",
+                            "email": "string",
+                            "password": "string",
+                            "phone": "string",
+                            "userStatus": 0
+                          })
+                          .then(
+                            (response) => {
+                                expect(response.status).to.eq(200)
+                            })
+            })
+
+            
+                    
+})
+        
+
+
+    

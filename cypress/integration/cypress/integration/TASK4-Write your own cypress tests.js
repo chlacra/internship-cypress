@@ -49,7 +49,7 @@ describe('ShoppingCart functionality', () => {
     cy.get('#Catalog > table > tbody > tr:nth-child(1) > th > font:nth-child(1) > b').should('have.text','Order')
     cy.get('.Button').click()
     cy.get('#Content > ul > li').should('have.text','Thank you, your order has been submitted.')
-    //cy.get('[href="/actions/Account.action?signoff="]').click()
+    cy.get('[href="/actions/Account.action?signoff="]').click()
 
     })
     it(' Check order informations', () => {
@@ -63,7 +63,7 @@ describe('ShoppingCart functionality', () => {
     cy.get('#Catalog > a').click()
     cy.get('#Content > h2').should('have.text','My Orders')
     cy.contains('124244').should('have.text','124244').click()
-    //cy.get('[href="/actions/Account.action?signoff="]').click()
+    cy.get('[href="/actions/Account.action?signoff="]').click()
 
     })
     it(' Add to cart from product page UNREGISTRED user and empty after', () => {

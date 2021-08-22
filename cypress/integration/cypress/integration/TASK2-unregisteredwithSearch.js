@@ -1,4 +1,5 @@
 // <reference types="cypress" />
+const orderIdMock = 100014915;
 
 describe(' Add an item to cart functionality for unregistred customers', () => {
     beforeEach(() => {
@@ -11,9 +12,6 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
         cy.get('#search')
             .click()
             .type('Samsung {enter}')
-           // .type('Samsung')//
-       // cy.get('.input-box > .button').click()//
-      // cy.get('body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.page-title > h1').should('have.text', 'Search results for Samsung')//
     })
 
     it( 'Check add items to cart functionality from Category page', () => {
@@ -26,7 +24,7 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
         cy.get('.page-title > .checkout-types > li > .button > :nth-child(1) > span').click()
         cy.get('#opc-login > .step-title > h2').should('have.text','Checkout Method')
         cy.get('.col-1 > .form-list > :nth-child(1) > label').click()
-        cy.get('#onepage-guest-register-button > :nth-child(1) > span').click()
+        cy.get('#onepage-guest-register-button > :nth-child(1) > span').click()     
         cy.get('#billing\\:firstname').click()
         cy.get('#billing\\:firstname').type('Elena')
         cy.get('#billing\\:middlename')
@@ -39,7 +37,7 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
             .should('have.not.text')
         cy.get('#billing\\:email')
             .click()
-            .type('elena@yahoo.com')
+            .type('aluneverzi@huhu.org')
         cy.get('#billing\\:street1')
             .click()
             .type('Suceava, Universitatii nr 1')
@@ -104,7 +102,7 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
             .should('have.not.text')
         cy.get('#billing\\:email')
             .click()
-            .type('elena1234dgv@yasfafadf.org')
+            .type('aluneverzi@huhu.org')
         cy.get('#billing\\:street1')
             .click()
             .type('Suceava, Universitatii nr 1')
@@ -145,9 +143,6 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
         .should('have.text','Your order has been received.')
     })
 
-   
-
-
      it( 'Check the order status with Email Address', () => {
         cy.get('body div.header-language-background p')
         cy.get(':nth-child(4) > ul > .last > a').click()
@@ -155,7 +150,7 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
             .should('have.text','Order Information')
         cy.get('#oar_order_id')
             .click()
-            .type('100014691')
+            .type(orderIdMock)
         cy.get('#oar_billing_lastname')
             .click()
             .type('Loghin')
@@ -163,10 +158,11 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
             .select('Email Address')
         cy.get('#oar_email')
             .click()
-            .type('elena@yahoo.com')
+            .type('aluneverzi@huhu.org')
         cy.get('.buttons-set > .button').click()
         cy.get('body > div > div > div.main-container.col1-layout > div > div.col-main > div.page-title.title-buttons > h1')
-            .should('have.text','Order #100014691 - Pending')
+        .should('have.text', `Order #${orderIdMock} - Pending`)
+        console.log(cy.get('body > div > div > div.main-container.col1-layout > div > div.col-main > div.page-title.title-buttons > h1'))
         
      })
     it( 'Check the order status from Footer with ZIP Code', () => {
@@ -177,7 +173,7 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
             .should('have.text','Order Information')
         cy.get('#oar_order_id')
             .click()
-            .type('100014691')
+            .type(orderIdMock)
         cy.get('#oar_billing_lastname')
             .click()
             .type('Loghin')
@@ -187,21 +183,10 @@ describe(' Add an item to cart functionality for unregistred customers', () => {
             .type('727601')
         cy.get('.buttons-set > .button').click()
         cy.get('body > div > div > div.main-container.col1-layout > div > div.col-main > div.page-title.title-buttons > h1')
-            .should('have.text','Order #100014691 - Pending')
+        .should('have.text', `Order #${orderIdMock} - Pending`)
+        console.log(cy.get('body > div > div > div.main-container.col1-layout > div > div.col-main > div.page-title.title-buttons > h1'))
+       
     })
-
-   //it( 'Check add items to cart functionality from ShoppingCart', () => {
-       // cy.get('body div.header-language-background p')
-        //cy.get('#search')
-           // .click()
-           // .type('Samsung {enter}')
-      //  cy.get(':nth-child(1) > .product-info > .actions > .button > :nth-child(1) > span').click()
-      //  cy.get('body > div > div > div.main-container.col1-layout > div > div > div > ul > li > ul > li > span').should('have.text','Samsung LCD was added to your shopping cart.')
-        //cy.get('.nav-1 > .level0').click()
-      //  cy.get('#header > div > div.skip-links > div > div > a').click()
-       // cy.get('#header-cart > div.minicart-wrapper > div.minicart-actions > ul > li > a').click()
-        
-       //})//
-
-    })
+    
+})
 

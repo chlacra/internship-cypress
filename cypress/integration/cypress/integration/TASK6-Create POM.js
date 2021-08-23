@@ -10,8 +10,7 @@ describe('Automation Test Suite using POM  for log in', function() {
       cy.visit('http://live.demoguru99.com')
     });
     
-
-    it('Login into account with valid data', function() {
+it('Login into account with valid data', function() {
        HomePage.clickAccount(),
        HomePage.clickLogin(),
        CustomerLogin.elements.titleSpan().should('have.text','                Login or Create an Account            '),
@@ -91,11 +90,11 @@ describe('Automation Test Suite using POM  for log in', function() {
             RegisterPage.typefirstNameInput('John'),
             RegisterPage.typeMiddleNameInput('E'),
             RegisterPage.typeLastNameInput('Johnson'),
-            RegisterPage.typeEmailAddressInput('capsun@copt.org')
+            RegisterPage.typeEmailAddressInput('capsun8@copt.org')
             RegisterPage.typepassInput('123456'),
             RegisterPage.typeConfirmPassInput('123456'),
             RegisterPage.clickRegisterBtn(),
-            RegisterPage.elements.createAnAccount().should('have.text', 'Thank you for registering with Main Website Store.')
+            RegisterPage.elements.accoutCreated().should('have.text', 'Thank you for registering with Main Website Store.')
 
 
          });
@@ -106,7 +105,7 @@ describe('Automation Test Suite using POM  for log in', function() {
             RegisterPage.typefirstNameInput('John'),
             RegisterPage.shouldMiddleNameInput('have.not.text'),
             RegisterPage.typeLastNameInput('Johnson'),
-            RegisterPage.typeEmailAddressInput('capsuniiiiii@copt.org')
+            RegisterPage.typeEmailAddressInput('capsun7@copt.org')
             RegisterPage.typepassInput('123456'),
             RegisterPage.typeConfirmPassInput('123456'),
             RegisterPage.clickRegisterBtn(),
